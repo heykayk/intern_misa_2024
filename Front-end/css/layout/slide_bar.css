@@ -21,7 +21,7 @@
     margin-bottom: 10px;
     padding: 10px;
     transition: background-color 0.3s;
-    font-weight: 600px;
+    font-weight: 600;
 }
 
 .router-link img {

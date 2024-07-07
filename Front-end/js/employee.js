@@ -48,31 +48,53 @@ const employees = [
         email: '123@gmail.com',
         address: 'Hà Đông, hà nội',
     },
+    
+    {
+        code: 'EMP006',
+        name: 'Phạm Văn F',
+        gender: 'Nam',
+        dob: '02/02/2002',
+        email: '123@gmail.com',
+        address: 'Hà Đông, hà nội',
+    },
+    
+    {
+        code: 'EMP006',
+        name: 'Phạm Văn F',
+        gender: 'Nam',
+        dob: '02/02/2002',
+        email: '123@gmail.com',
+        address: 'Hà Đông, hà nội',
+    },
+    
+    {
+        code: 'EMP006',
+        name: 'Phạm Văn F',
+        gender: 'Nam',
+        dob: '02/02/2002',
+        email: '123@gmail.com',
+        address: 'Hà Đông, hà nội',
+    },
+    
+    {
+        code: 'EMP006',
+        name: 'Phạm Văn F',
+        gender: 'Nam',
+        dob: '02/02/2002',
+        email: '123@gmail.com',
+        address: 'Hà Đông, hà nội',
+    },
+    
+    {
+        code: 'EMP006',
+        name: 'Phạm Văn F',
+        gender: 'Nam',
+        dob: '02/02/2002',
+        email: '123@gmail.com',
+        address: 'Hà Đông, hà nội',
+    },
 ];
 
-openToggle();
-
-function openToggle() {
-    slideBar.classList.add('expanded');
-    toggleText.textContent = 'Close';
-}
-
-
-// Slide Bar Toggle
-document.getElementById('toggleButton').addEventListener('click', function () {
-    const slideBar = document.getElementById('slideBar');
-    const toggleText = document.getElementById('toggleText');
-
-    if (slideBar.classList.contains('expanded')) {
-        slideBar.classList.remove('expanded');
-        toggleText.textContent = 'Open';
-    } else {
-        slideBar.classList.add('expanded');
-        toggleText.textContent = 'Close';
-    }
-});
-
-// Modal Handling
 function openModal() {
     document.getElementById('employeeModal').style.display = 'flex';
 }
@@ -80,39 +102,6 @@ function openModal() {
 function closeModal() {
     document.getElementById('employeeModal').style.display = 'none';
 }
-
-function handleSubmit(event) {
-    event.preventDefault();
-
-    const employees = {
-        code: document.getElementById('employeeCode').value,
-        name: document.getElementById('employeeName').value,
-        position: document.getElementById('employeePosition').value,
-        department: document.getElementById('employeeDepartment').value,
-        dob: document.getElementById('employeeDob').value,
-        gender: document.querySelector('input[name="gender"]:checked').value,
-        id: document.getElementById('employeeId').value,
-        idDate: document.getElementById('employeeIdDate').value,
-        issued: document.getElementById('employeeIssued').value,
-        address: document.getElementById('employeeAddress').value,
-        phone: document.getElementById('employeePhone').value,
-        tel: document.getElementById('employeeTel').value,
-        email: document.getElementById('employeeEmail').value,
-        bankAccountNumber: document.getElementById('employeeBankAccountNumber').value,
-        bankAccountName: document.getElementById('employeeBankAccountName').value,
-        branch: document.getElementById('employeeBranch').value,
-    };
-
-    console.log(employees);
-
-    // Thêm logic lưu dữ liệu nhân viên vào đây
-    // ...
-
-    // Sau khi lưu dữ liệu, đóng modal và xóa dữ liệu
-    closeModal();
-    document.getElementById('employeeForm').reset();
-}
-
 
 // Function to render the employee table
 function renderTable() {
@@ -135,17 +124,6 @@ function renderTable() {
     });
 }
 
-// Function to search employees
-function search() {
-    const keyword = document.getElementById('searchKeyword').value.toLowerCase();
-    const filteredEmployees = employees.filter(employee =>
-        employee.name.toLowerCase().includes(keyword)
-    );
-    console.log('Search results:', filteredEmployees);
-    // Render the filtered employees
-    renderTable(filteredEmployees);
-}
-
 // Function to open modal
 function openModal(employeeIndex = null) {
     document.getElementById('employeeModal').style.display = 'flex';
@@ -163,33 +141,4 @@ function closeModal() {
     document.getElementById('employeeForm').reset();
 }
 
-// Function to save employee
-function saveEmployee() {
-    const employeeIndex = document.getElementById('employeeId').value;
-    const name = document.getElementById('employeeName').value;
-    // Get other form fields similarly
-    if (employeeIndex) {
-        // Edit existing employee
-        employees[employeeIndex].name = name;
-        // Update other fields similarly
-    } else {
-        // Add new employee
-        const newEmployee = {
-            code: `NV${employees.length + 1}`.padStart(3, '0'),
-            name,
-            // Set other fields similarly
-        };
-        employees.push(newEmployee);
-    }
-    closeModal();
-    renderTable();
-}
-
-// Function to delete employee
-function deleteEmployee(index) {
-    employees.splice(index, 1);
-    renderTable();
-}
-
-// Initialize the table
 renderTable();

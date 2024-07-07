@@ -1,133 +1,143 @@
-/* Modal container */
+/* modal.css */
 .modal {
-    display: none; /* Ẩn modal mặc định */
-    position: fixed; /* Cố định modal trên màn hình */
-    z-index: 1000; /* Hiển thị modal lên trên các nội dung khác */
+    display: none;
+    position: fixed;
+    z-index: 1000;
     left: 0;
     top: 0;
-    width: 100%; /* Chiều rộng toàn màn hình */
-    height: 100%; /* Chiều cao toàn màn hình */
-    overflow: auto; /* Kích hoạt cuộn nếu nội dung quá dài */
-    background-color: rgba(0, 0, 0, 0.5); /* Màu nền tối */
-    display: flex; /* Hiển thị dạng flex */
-    justify-content: center; /* Canh giữa theo chiều ngang */
-    align-items: center; /* Canh giữa theo chiều dọc */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
 }
 
-/* Modal content */
 .modal-content {
-    background-color: #fff; /* Màu nền trắng cho modal */
-    width: 70%; /* Chiều rộng modal */
-    border-radius: 8px; /* Bo tròn các góc */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Bóng đổ */
-    z-index: 1001; /* Đảm bảo modal content nổi lên trên modal container */
-    padding: 50px 60px; /* Khoảng cách bên trong */
-    margin-left: 15%; /* Khoảng cách bên trái */
-    margin-right: 15%; /* Khoảng cách bên phải */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 1000px;
 }
 
-/* Close button */
 .close {
-    position: absolute; /* Cố định vị trí */
-    top: 10px; /* Cách đỉnh 10px */
-    right: 10px; /* Cách bên phải 10px */
-    font-size: 24px; /* Kích thước chữ */
-    cursor: pointer; /* Thay đổi con trỏ khi hover */
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
 }
 
-/* Form styling inside modal */
-.modal h2 {
-    font-size: 24px; /* Kích thước chữ */
-    font-weight: 500; /* Độ đậm chữ */
+/* Additional styles specific to modal content */
+.modal-content h2 {
+    font-size: 24px;
+    font-weight: 500;
 }
 
-.modal input {
-    height: auto; /* Chiều cao tự động */
-    margin-right: 10px; /* Khoảng cách bên phải 10px */
-    border-radius: 3px; /* Bo tròn góc */
-    padding: 8px; /* Khoảng cách bên trong 8px */
-    border: 1px solid #ccc; /* Viền màu xám nhạt */
-    margin-bottom: 2px; /* Khoảng cách dưới 2px */
+.modal-content input {
+    height: 20px;
 }
 
-/* Row and Info containers */
-.row_1, .row_2, .row_3, .row_4 {
-    display: flex; /* Sử dụng flexbox */
-    width: 100%; /* Chiều rộng 100% */
-    justify-content: flex-end; /* Canh các phần tử sang bên phải */
+.modal-content .row_1,
+.modal-content .row_2,
+.modal-content .row_3,
+.modal-content .row_4 {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
 }
 
-.info_1, .info_2 {
-    width: 50%; /* Chiều rộng 50% */
+.modal-content .info_1,
+.modal-content .info_2 {
+    width: 50%;
 }
 
-/* Form fields */
-.code_name, .dob_gender, .id_date {
-    display: flex; /* Sử dụng flexbox */
-    width: 100%; /* Chiều rộng 100% */
-    justify-content: flex-end; /* Canh các phần tử sang bên phải */
+.modal-content .code_name,
+.modal-content .dob_gender,
+.modal-content .id_date {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
 }
 
-.code, .name, .position, .department, .dob, .gender, .id, .date, .address, .phone, .tel, .email, .bank_account_number, .bank_account_name, .branch {
-    display: flex; /* Sử dụng flexbox */
-    flex-direction: column; /* Canh các phần tử theo chiều dọc */
-    width: 100%; /* Chiều rộng 100% */
-    margin-left: 10px; /* Khoảng cách bên trái 10px */
+
+.modal-content .code,
+.modal-content .name,
+.modal-content .position,
+.modal-content .department,
+.modal-content .dob,
+.modal-content .gender,
+.modal-content .id,
+.modal-content .date,
+.modal-content .address,
+.modal-content .phone,
+.modal-content .tel,
+.modal-content .email,
+.modal-content .bank_account_number,
+.modal-content .bank_account_name,
+.modal-content .branch {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 10px;
 }
 
-.code_name{
-    margin-left: 26px;
+.modal-content .issued {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 10px);
+    margin-left: 10px;
 }
 
-.issued {
-    display: flex; /* Sử dụng flexbox */
-    flex-direction: column; /* Canh các phần tử theo chiều dọc */
-    width: calc(100% - 10px); /* Chiều rộng 100% trừ đi 10px */
-    margin-left: 10px; /* Khoảng cách bên trái 10px */
+.modal-content .option {
+    display: flex;
+    align-items: center;
 }
 
-/* Form options */
-.option {
-    display: flex; /* Sử dụng flexbox */
-    align-items: center; /* Canh giữa theo chiều dọc */
+.modal-content input {
+    height: auto;
+    margin-right: 10px;
+    border-radius: 3px;
+    padding: 8px;
+    border: 1px solid #ccc;
 }
 
-.option label {
-    margin-right: 10px; /* Khoảng cách bên phải 10px */
+.modal-content .option label {
+    margin-right: 10px;
 }
 
-.option input {
-    margin-right: 5px; /* Khoảng cách bên phải 5px */
+.modal-content .option input {
+    margin-right: 5px;
 }
 
-.modal label {
-    font-weight: 400; /* Độ đậm chữ */
-    font-size: 14px; /* Kích thước chữ */
+.modal-content label {
+    font-weight: 400;
+    font-size: 14px;
 }
 
-/* Form buttons */
-.buttons {
-    display: flex; /* Sử dụng flexbox */
-    justify-content: flex-end; /* Canh các phần tử sang bên phải */
+.modal-content .buttons {
+    display: flex;
+    justify-content: flex-end;
 }
 
-.modal button {
-    margin-top: 10px; /* Khoảng cách trên 10px */
-    padding: 4px 8px; /* Khoảng cách bên trong */
-    border: none; /* Bỏ viền */
-    border-radius: 4px; /* Bo tròn các góc */
-    cursor: pointer; /* Thay đổi con trỏ khi hover */
-    width: 120px; /* Chiều rộng */
-    height: 39px; /* Chiều cao */
-    margin-left: 20px; /* Khoảng cách bên trái 20px */
+.modal-content button {
+    margin-top: 10px;
+    padding: 4px 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 120px;
+    height: 39px;
+    margin-left: 20px;
 }
 
-.modal button[type="submit"] {
-    background-color: #50B83C; /* Màu nền xanh lá */
-    color: white; /* Màu chữ trắng */
+.modal-content button[type="submit"] {
+    background-color: #50B83C;
+    color: white;
 }
 
-.modal button[type="button"] {
-    background-color: #f44336; /* Màu nền đỏ */
-    color: white; /* Màu chữ trắng */
+.modal-content button[type="button"] {
+    background-color: #f44336;
+    color: white;
 }

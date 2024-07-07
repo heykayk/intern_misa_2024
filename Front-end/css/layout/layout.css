@@ -1,13 +1,27 @@
-/* reset.css */
-body, h1, h2, h3, p, div, img, ul, li, button, input, table, th, td {
+/* global.css */
+/* Reset default margin and padding */
+body,
+h1,
+h2,
+h3,
+p,
+div,
+img,
+ul,
+li,
+button,
+input,
+table,
+th,
+td {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* layout.css */
 .container {
     display: flex;
     height: 100vh;
-    font-family: Arial, sans-serif;
 }
+
+/* Additional global styles can be placed here */

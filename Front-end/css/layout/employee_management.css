@@ -10,7 +10,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px;
+    padding: 10px;
     background-color: #fff;
     margin-top: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -25,6 +25,7 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin: auto 0;
 }
 
 .title {
@@ -34,10 +35,11 @@
 
 .body_container {
     background-color: #fff;
-    margin: 10px 0;
+    margin-top: 10px;
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: calc(100vh - 56px - 56px);
 }
 
 .tool_bar {
@@ -79,6 +81,9 @@
 
 .employee-table {
     margin-top: 20px;
+    max-height: calc(100% - 100px);
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 table {
@@ -86,7 +91,12 @@ table {
     border-collapse: collapse;
 }
 
-th, td {
+thead {
+    /* position: sticky; */
+}
+
+th,
+td {
     padding: 12px;
     text-align: left;
     border-bottom: 1px solid #ccc;
