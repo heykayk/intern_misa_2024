@@ -1,0 +1,113 @@
+/* employee-management.css */
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #f4f4f4;
+}
+
+.top_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #fff;
+    margin-top: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.btn_add {
+    width: 79px;
+    height: 36px;
+    background-color: #50B83C;
+    color: #fff;
+    font-weight: 500;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.body_container {
+    background-color: #fff;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tool_bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.quick_filter {
+    position: relative;
+    width: 250px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-image: url('public/icon/search.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 16px;
+}
+
+.employee-table {
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+th {
+    background-color: #f9f9f9;
+}
+
+td img.icon1 {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+td .action-buttons {
+    display: none;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+td:hover .action-buttons {
+    display: flex;
+}
