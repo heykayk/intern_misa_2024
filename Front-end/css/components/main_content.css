@@ -1,0 +1,235 @@
+.main-content {
+    background-color: #D9D9D9;
+    width: calc(100% - 200px);
+    height: calc(100vh - 56px);
+    /* padding: 10px 0 0 10px; */
+    float: left;
+}
+
+.table-title {
+    width: calc(100% - 40px);
+    background-color: #D9D9D9;
+    margin: 0 24px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+}
+
+.title {
+    float: left;
+    font-size: 24px;
+}
+
+.button-add {
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    margin-left: auto;
+    width: auto;
+    height: 36px;
+    background-color: #089740;
+    font: 14px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    color: white;
+    padding-right: 10px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.button-add:hover {
+    background-color: #067933;
+}
+
+
+.img-button-add {
+    width: 16px;
+    height: 16px;
+    color: white;
+    padding-right: 4px;
+}
+
+.table-container {
+    background-color: #FFFFFF;
+    width: calc(100% - 40px);
+    margin-left: 24px;
+    margin-right: 24px;
+    margin-bottom: 8px;
+    height: calc(100% - 76px);
+}
+
+.table-search {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    width: calc(100% -24px);
+    height: 56px;
+    margin: 0 16px;
+}
+
+.search-container {
+    top: 0;
+    right: 0;
+    width: auto;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 80%;
+}
+
+
+
+.search-input {
+    display: flex;
+    color: #FFFFFF;
+    justify-content: center;
+    align-items: center;
+    width: 280px;
+    height: 32px;
+    line-height: 18px;
+    padding-left: 28px;
+    opacity: 100%;
+    border: 1px solid #E0E1E4;
+    size: 14px;
+}
+
+.search-input:hover {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-icon {
+    width: 16px;
+    height: 16px;
+    pointer-events: none;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.img {
+    width: 36px;
+    height: 36px;
+}
+
+.img-export {
+    margin-left: auto;
+}
+
+.img-refresh {
+    padding: 4px;
+    margin-left: 10px;
+}
+
+
+/* css cho bảng nhân viên  */
+.table-content {
+    width: calc(100% - 32px);
+    margin-left: 16px;
+    margin-right: 16px;
+    height: calc(100% - 56px - 56px);
+    overflow-y: auto;
+    position: relative;
+    scrollbar-width: none;
+    /* For Firefox */
+    -ms-overflow-style: none;
+    /* For Internet Explorer and Edge */
+}
+
+/* Custom scrollbar for WebKit browsers (Chrome, Safari) */
+.table-content::-webkit-scrollbar {
+    width: 8px;
+    /* Width of the vertical scrollbar */
+    height: 8px;
+    /* Height of the horizontal scrollbar */
+    border-radius: 4px;
+}
+
+.table-content {
+    scrollbar-width: thin;
+    /* "auto" or "thin" */
+    scrollbar-color: #888 #f1f1f1;
+    /* thumb and track */
+}
+
+.table {
+    width: 100%;
+    /* Đảm bảo bảng chiếm toàn bộ chiều rộng của container */
+    border-collapse: collapse;
+    /* Loại bỏ khoảng trống giữa các ô bảng */
+    table-layout: auto;
+}
+
+thead {
+    background-color: #F5F5F5;
+    position: sticky;
+    top: -2px;
+    display: table-header-group;
+}
+
+td,
+th {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+    white-space: nowrap;
+}
+
+tr {
+    height: 48px;
+}
+
+tbody {
+    width: 100%;
+    max-height: 100%;
+    border-collapse: collapse;
+}
+
+tbody tr:hover {
+    background-color: #F2FFF0;
+}
+
+
+
+
+/* css cho phân trang  */
+.total-page {
+    width: 200px;
+}
+
+.page-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: #FFFFFF;
+    width: calc(100% - 32px);
+    height: 56px;
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+.page {
+    display: flex;
+    margin-left: auto;
+}
+
+.text-page,
+.dropdown-page,
+.total-page,
+.dropdown-page {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.text-page,
+.dropdown-page,
+.arrow-left,
+.arrow-right {
+    margin-right: 10px;
+}
+
+
+.arrow-right {
+    transform: rotate(180deg);
+}

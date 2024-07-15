@@ -1,0 +1,40 @@
+.nav{
+    background-color: green;
+    width: 200px;
+    height: calc(100vh - 56px);
+    float: left;
+    display: flex;
+    flex-direction: column;
+    background-color: #041434;
+}
+
+.nav-item{
+    display: flex;
+    align-items: center;
+    width: 176px;
+    margin:4px 12px;
+    height: 44px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+.nav-item-active, .nav-item:hover {
+    background-color: #5a79a0;
+    border-radius: 5px;
+}
+
+.nav-item img{
+    width: 32px;
+    height: 32px;
+    margin: 0 12px;
+    color: #ffffff;
+    filter: brightness(0) invert(1);
+}
+
+.nav-item div{
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+}
