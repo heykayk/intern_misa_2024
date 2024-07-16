@@ -5,9 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+    <!-- Thêm thư viện jQuery và jQuery Validation từ CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.js"></script>
+
     <link rel="stylesheet" href="../css/components/header.css">
     <link rel="stylesheet" href="../css/components/nav.css">
-    <!-- <link rel="stylesheet" href="../css/components/main_content.css"> -->
     <link rel="stylesheet" href="../css/components/register_employee.css">
 </head>
 
@@ -43,7 +52,7 @@
         </a>
     </div>
     <div class="main-content">
-        <form class="register-form" method="POST" id="register_form">
+        <form class="register-form" method="POST" id="register-form">
             <div class="row">
                 <h2>Thông tin nhân viên</h2>
             </div>
@@ -51,23 +60,23 @@
                 <div class="row-left">
                     <div class="row-item employee-code">
                         <label for="employee-code">Mã nhân viên</label>
-                        <input type="text" autofocus required minlength="2">
+                        <input type="text" id="employee-code" name="employee_code" autofocus>
                     </div>
                     <div class="row-item name">
                         <label for="">Họ và tên</label>
-                        <input type="text" required minlength="2">
+                        <input type="text" name="fullname" id="fullname">
                     </div>
                 </div>
                 <div class="row-right">
                     <div class="row-item date">
                         <label for="">Ngày sinh</label>
-                        <input type="date">
+                        <input type="date" id="date-of-birth" name="date_of_birth">
                     </div>
                     <div class="row-item sex">
                         <label for="">Giới tính</label>
                         <div>
                             <label>
-                                <input type="radio" name="gender" value="male">
+                                <input type="radio" name="gender" value="male" checked>
                                 Nam
                             </label><br>
                             <label>
@@ -86,18 +95,18 @@
                 <div class="row-left">
                     <div class="row-item position">
                         <label for="">Vị trí</label>
-                        <input type="text">
+                        <input type="text" id="position" name="position">
                     </div>
                 </div>
                 <div class="row-right">
                     <div class="row-item identification-number">
                         <label for="">Số căn cước công dân</label>
-                        <input type="number">
+                        <input type="number" id="identification-number" name="identification_number">
                     </div>
-                    
+
                     <div class="row-item issue-date">
                         <label for="">Ngày phát hành</label>
-                        <input type="date">
+                        <input type="date" id="issue-date" name="issue_date">
                     </div>
                 </div>
             </div>
@@ -105,13 +114,13 @@
                 <div class="row-left">
                     <div class="row-item department">
                         <label for="">Phòng ban</label>
-                        <input type="text">
+                        <input type="text" id="department" name="department">
                     </div>
                 </div>
                 <div class="row-right">
                     <div class="row-item place-of-issue">
                         <label for="">Nơi cấp</label>
-                        <input type="text">
+                        <input type="text" id="place-of-issue" name="place_of_issue">
                     </div>
                 </div>
             </div>
@@ -119,7 +128,7 @@
                 <div class="row-left" style="width: 100%; padding-right: 0;">
                     <div class="row-item address">
                         <label for="">Địa chỉ</label>
-                        <input type="text">
+                        <input type="text" id="address" name="address">
                     </div>
                 </div>
             </div>
@@ -127,17 +136,17 @@
                 <div class="row-left" style="width: 100%; padding-right: 0; justify-content: space-between;">
                     <div class="row-item mobile-phone">
                         <label for="">Điện thoại di động</label>
-                        <input type="text">
+                        <input type="text" id="mobile-phone" name="mobile_phone">
                     </div>
 
                     <div class="row-item landline-phone">
                         <label for="">Điện thoại cố định</label>
-                        <input type="text">
+                        <input type="text" id="landline-phone" name="landline_phone">
                     </div>
 
                     <div class="row-item email">
                         <label for="">Email</label>
-                        <input type="text">
+                        <input type="text" id="email" name="email">
                     </div>
                 </div>
             </div>
@@ -145,32 +154,27 @@
                 <div class="row-left" style="width: 100%; padding-right: 0; justify-content: space-between;">
                     <div class="row-item bank-account">
                         <label for="">Tài khoản ngân hàng</label>
-                        <input type="text">
+                        <input type="text" id="bank-account" name="bank_account">
                     </div>
 
                     <div class="row-item bank-name">
                         <label for="">Tên ngân hàng</label>
-                        <input type="text">
+                        <input type="text" id="bank-name" name="bank_name">
                     </div>
 
                     <div class="row-item branh">
                         <label for="">Chi nhánh</label>
-                        <input type="text">
+                        <input type="text" id="brach" name="brach">
                     </div>
                 </div>
             </div>
             <div class="row" style="justify-content: flex-end;">
                 <a class="btn-cancle btn" href="../layout/employee.html">Hủy</a>
-                <button class="btn-add btn">Cất</button>
+                <button class="btn-add btn" id="button-add">Cất</button>
             </div>
         </form>
     </div>
 </body>
+<script src="../js/validate_register_form.js"></script>
 
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/jquery.validation/1.19.3/jquery.validate.min.js"></script>
-<script>
-    $("#register_form").validate();
-</script>
 </html>
