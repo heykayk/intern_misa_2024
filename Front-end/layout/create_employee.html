@@ -11,13 +11,11 @@
             font-size: 14px;
         }
     </style>
-    <!-- Thêm thư viện jQuery và jQuery Validation từ CDN -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.js"></script>
 
     <link rel="stylesheet" href="../css/components/header.css">
     <link rel="stylesheet" href="../css/components/nav.css">
     <link rel="stylesheet" href="../css/components/register_employee.css">
+    <link rel="stylesheet" href="../css/components/popup.css">
 </head>
 
 <body>
@@ -60,11 +58,11 @@
                 <div class="row-left">
                     <div class="row-item employee-code">
                         <label for="employee-code">Mã nhân viên</label>
-                        <input type="text" id="employee-code" name="employee_code" autofocus>
+                        <input type="text" id="employee-code" name="employee_code" autofocus required>
                     </div>
                     <div class="row-item name">
                         <label for="">Họ và tên</label>
-                        <input type="text" name="fullname" id="fullname">
+                        <input type="text" name="fullname" id="fullname" required>
                     </div>
                 </div>
                 <div class="row-right">
@@ -174,6 +172,25 @@
             </div>
         </form>
     </div>
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h2>Notification Title</h2>
+                <img src="../assets/icon/close-48.png" class="close-btn"></img>
+            </div>
+            <div class="popup-body">
+                <li>Thông báo lỗi abc</li>
+                <li>Thông báo lỗi abc</li>
+                <li>Thông báo lỗi abc</li>
+                <li>Thông báo lỗi abc</li>
+            </div>
+            <div class="popup-footer">
+                <button class="close-popup-btn">Close</button>
+            </div>
+        </div>
+    </div>
+
 </body>
 <script src="../js/validate_register_form.js"></script>
 

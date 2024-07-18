@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,9 @@
     <link rel="stylesheet" href="../css/components/header.css">
     <link rel="stylesheet" href="../css/components/nav.css">
     <link rel="stylesheet" href="../css/components/main_content.css">
+    <link rel="stylesheet" href="../css/components/popup.css">
 </head>
+
 <body>
     <div class="header">
         <div class="header-logo">
@@ -42,7 +45,7 @@
     <div class="main-content">
         <div class="table-title">
             <h1 class="title">Quản lý nhân viên</h1>
-            <a class="button-add" href="../layout/create_employee.html">
+            <a id="button-add" class="button-add" href="../layout/create_employee.html">
                 <img class="img-button-add" src="../assets/icon/add-male-user-64.png" alt="">
                 Thêm mới
             </a>
@@ -54,11 +57,20 @@
                     <input type="text" class="search-input" placeholder="Tìm kiếm trong danh sách">
                     <img class="search-icon" src="../assets/icon/search.png" alt="">
                 </div>
-                <img class="img img-export" src="../assets/icon/export-excel-50.png" alt="">
-                <img class="img img-refresh" src="../assets/icon/icons8-cycle-24.png" alt="">
+                <button class="button-img" style="margin-left: auto;"><img class="img img-export" src="../assets/icon/export-excel-50.png" alt=""></button>
+                <button class="button-img"><img class="img img-refresh" src="../assets/icon/icons8-cycle-24.png" alt=""></button>
             </div>
             <div class="table-content">
-                <table class="table">
+                <table class="table" id="tblEmployee">
+                    <colgroup>
+                        <col style="width: 5%;">
+                        <col style="width: 10%;">
+                        <col style="width: 17%;">
+                        <col style="width: 7%;">
+                        <col style="width: 10%;">
+                        <col style="width: 18%;">
+                        <col style="width: 33%;">
+                    </colgroup>
                     <thead>
                         <tr>
                             <th>STT</th>
@@ -71,34 +83,42 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Mã nhân viên</td>
-                            <td>Họ và tên</td>
-                            <td>Giới tính</td>
-                            <td>Ngày sinh</td>
-                            <td>Địa chỉ email</td>
-                            <td>Địa chỉ</td>
-                        </tr>
+                        
                     </tbody>
                 </table>
             </div>
             <div class="page-container">
-                <div class="total-page">Tổng: 900</div>
+                <div class="total-page">Tổng: 0</div>
 
                 <div class="page">
                     <div class="text-page">Số bản ghi/trang</div>
-                    <select class="dropdown-page">
-                        <option value="">10</option>
-                        <option value="">111</option>
-                        <option value="">110</option>
+                    <select class="dropdown-page" id="dropdown-page">
+                        
                     </select>
-                    <img class="arrow-left" src="../assets/icon/arrowhead-left-outline.png" alt="">
-                    <img class="arrow-right" src="../assets/icon/arrowhead-left-outline.png" alt="">
+                    <button class="button-img" id="arrow-left"><img class="arrow-left" src="../assets/icon/arrowhead-left-outline.png" alt=""></button>
+                    <button class="button-img" id="arrow-right"><img class="arrow-right" src="../assets/icon/arrowhead-left-outline.png" alt=""></button>
                 </div>
             </div>
         </div>
-
     </div>
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h2>Notification Title</h2>
+                <button><img src="../assets/icon/close-48.png" class="close-btn"></img></button>
+            </div>
+            <div class="popup-body">
+                <p></p>
+            </div>
+            <div class="popup-footer">
+                <button class="close-popup-btn">Xác nhận</button>
+            </div>
+        </div>
+    </div>
+
 </body>
+
+<script src="../js/employee/employee.js"></script>
+
 </html>

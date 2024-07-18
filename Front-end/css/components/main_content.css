@@ -20,6 +20,17 @@
     font-size: 24px;
 }
 
+.button-img{
+    background-color: transparent;
+    border: none;
+    margin-left: 4px;
+    cursor: pointer;
+}
+
+.button-img:hover{
+    scale: 1.1;
+}
+
 .button-add {
     display: flex;
     align-items: center;
@@ -50,7 +61,7 @@
     padding-right: 4px;
 }
 
-.table-container {
+.table-container, .loading-data {
     background-color: #FFFFFF;
     width: calc(100% - 40px);
     margin-left: 24px;
@@ -113,10 +124,6 @@
     height: 36px;
 }
 
-.img-export {
-    margin-left: auto;
-}
-
 .img-refresh {
     padding: 4px;
     margin-left: 10px;
@@ -130,11 +137,19 @@
     margin-right: 16px;
     height: calc(100% - 56px - 56px);
     overflow-y: auto;
+    overflow-x: hidden;
     position: relative;
     scrollbar-width: none;
     /* For Firefox */
     -ms-overflow-style: none;
     /* For Internet Explorer and Edge */
+}
+
+.loading{
+    height: 100%;
+    width: 100%;
+    z-index: 500;
+    background-color: #067933;
 }
 
 /* Custom scrollbar for WebKit browsers (Chrome, Safari) */
@@ -154,6 +169,7 @@
 }
 
 .table {
+    z-index: 0;
     width: 100%;
     /* Đảm bảo bảng chiếm toàn bộ chiều rộng của container */
     border-collapse: collapse;
@@ -163,13 +179,17 @@
 
 thead {
     background-color: #F5F5F5;
-    position: sticky;
     top: -2px;
+    position: sticky;
     display: table-header-group;
+    z-index: 1;
 }
+
 
 td,
 th {
+    text-align: center;
+    vertical-align: middle;
     padding: 8px;
     text-align: left;
     border: 1px solid #ddd;
@@ -232,4 +252,23 @@ tbody tr:hover {
 
 .arrow-right {
     transform: rotate(180deg);
+}
+
+td div {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(-0%, -50%);
+    display: none;
+}
+
+tbody tr:hover td div{
+    display: block;
+}
+
+
+tbody tr:hover td div img{
+    height: 24px;
+    width: 24px;
+    opacity: 100%;
 }
