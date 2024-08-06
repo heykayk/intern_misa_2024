@@ -20,14 +20,14 @@
     font-size: 24px;
 }
 
-.button-img{
+.button-img {
     background-color: transparent;
     border: none;
     margin-left: 4px;
     cursor: pointer;
 }
 
-.button-img:hover{
+.button-img:hover {
     scale: 1.1;
 }
 
@@ -61,7 +61,8 @@
     padding-right: 4px;
 }
 
-.table-container, .loading-data {
+.table-container,
+.loading-data {
     background-color: #FFFFFF;
     width: calc(100% - 40px);
     margin-left: 24px;
@@ -136,7 +137,7 @@
     margin-right: 16px;
     height: calc(100% - 56px - 56px);
     overflow-y: auto;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     position: relative;
     scrollbar-width: none;
     /* For Firefox */
@@ -144,7 +145,7 @@
     /* For Internet Explorer and Edge */
 }
 
-.loading{
+.loading {
     height: 100%;
     width: 100%;
     z-index: 500;
@@ -158,6 +159,11 @@
     height: 8px;
     /* Height of the horizontal scrollbar */
     border-radius: 4px;
+    z-index: 0;
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    /* Giữ kích thước cột cố định */
 }
 
 .table-content {
@@ -193,6 +199,10 @@ th {
     text-align: left;
     border: 1px solid #ddd;
     white-space: nowrap;
+    overflow: hidden;
+    /* Ẩn phần văn bản vượt quá chiều rộng của ô */
+    text-overflow: ellipsis;
+    /* Hiển thị dấu ba chấm khi văn bản bị cắt */
 }
 
 tr {
@@ -261,12 +271,12 @@ td div {
     display: none;
 }
 
-tbody tr:hover td div{
+tbody tr:hover td div {
     display: block;
 }
 
 
-tbody tr:hover td div img{
+tbody tr:hover td div img {
     height: 24px;
     width: 24px;
     opacity: 100%;

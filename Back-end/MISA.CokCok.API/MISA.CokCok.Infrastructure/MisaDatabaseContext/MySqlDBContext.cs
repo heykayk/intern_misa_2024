@@ -53,6 +53,10 @@ namespace MISA.CokCok.Infrastructure.MisaDatabaseContext
         {
             var classname = typeof(T).Name;
             var sql = $"SELECT * FROM {classname}";
+            if (classname == "Employee")
+            {
+                sql = $"SELECT * FROM {classname} ORDER BY {classname}Code DESC";
+            }
             var data = Connection.Query<T>(sql);
             return data.ToList();
         }
@@ -99,7 +103,46 @@ namespace MISA.CokCok.Infrastructure.MisaDatabaseContext
 
         public int Update<T>(T entity)
         {
-            throw new NotImplementedException();
+            var className = typeof(T).Name;
+            var setClause = "";
+            var keyPropertyName = className + "Id";
+            var keyPropertyValue = "";
+
+            // lấy ra tất cả các props của entity
+            var props = entity.GetType().GetProperties();
+            var parameters = new DynamicParameters();
+
+            // duyệt từng props
+            foreach (var prop in props)
+            {
+                // lấy ra tên của prop
+                var propname = prop.Name;
+                var val = prop.GetValue(entity);
+                if (propname == keyPropertyName)
+                {
+                    keyPropertyValue = val?.ToString() ?? "";
+                }
+
+                // xây dựng SET clause, bỏ qua khóa chính
+                if (propname != keyPropertyName)
+                {
+                    setClause += $"{propname} = @{propname}, ";
+                    parameters.Add($"@{propname}", val);
+                }
+            }
+
+            // loại bỏ dấu phẩy và khoảng trắng cuối cùng
+            setClause = setClause.Substring(0, setClause.Length - 2);
+
+            // thêm khóa chính vào parameters
+            parameters.Add($"@{keyPropertyName}", keyPropertyValue);
+
+            // Build câu lệnh sql
+            var sqlUpdate = $"UPDATE {className} SET {setClause} WHERE {keyPropertyName} = @{keyPropertyName};";
+
+            // thực thi
+            var res = Connection.Execute(sqlUpdate, parameters);
+            return res;
         }
     }
 }

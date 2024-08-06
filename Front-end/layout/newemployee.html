@@ -5,12 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        .error {
-            color: red;
-            font-size: 14px;
-        }
-    </style>
 
     <link rel="stylesheet" href="../css/components/header.css">
     <link rel="stylesheet" href="../css/components/nav.css">
@@ -58,31 +52,31 @@
                 <div class="row-left">
                     <div class="row-item employee-code">
                         <label for="employee-code">Mã nhân viên</label>
-                        <input class="error" type="text" id="employee-code" name="employee_code" autofocus required>
+                        <input type="text" id="employee-code" name="employeeCode" autofocus required>
                     </div>
                     <div class="row-item name">
                         <label for="">Họ và tên</label>
-                        <input type="text" name="fullname" id="fullname" required>
+                        <input type="text" name="fullName" id="fullname" required>
                     </div>
                 </div>
                 <div class="row-right">
                     <div class="row-item date">
                         <label for="">Ngày sinh</label>
-                        <input type="date" id="date-of-birth" name="date_of_birth">
+                        <input type="date" id="date-of-birth" name="dateOfBirth">
                     </div>
                     <div class="row-item sex">
                         <label for="">Giới tính</label>
                         <div>
                             <label>
-                                <input type="radio" name="gender" value="male" checked>
+                                <input type="radio" name="sex" value="male">
                                 Nam
                             </label><br>
                             <label>
-                                <input type="radio" name="gender" value="female">
+                                <input type="radio" name="sex" value="female">
                                 Nữ
                             </label><br>
                             <label>
-                                <input type="radio" name="gender" value="other">
+                                <input type="radio" name="sex" value="other">
                                 Khác
                             </label>
                         </div>
@@ -93,18 +87,20 @@
                 <div class="row-left">
                     <div class="row-item position">
                         <label for="">Vị trí</label>
-                        <input type="text" id="position" name="position">
+                        <!-- <input type="text" id="position" name="position"> -->
+                        <select class="select-option" id="position" name="positionId">
+                        </select>
                     </div>
                 </div>
                 <div class="row-right">
                     <div class="row-item identification-number">
                         <label for="">Số căn cước công dân</label>
-                        <input type="number" id="identification-number" name="identification_number">
+                        <input type="number" id="identification-number" name="identificationNumber">
                     </div>
 
                     <div class="row-item issue-date">
                         <label for="">Ngày phát hành</label>
-                        <input type="date" id="issue-date" name="issue_date">
+                        <input type="date" id="issue-date" name="issueDate">
                     </div>
                 </div>
             </div>
@@ -112,7 +108,9 @@
                 <div class="row-left">
                     <div class="row-item department">
                         <label for="">Phòng ban</label>
-                        <input type="text" id="department" name="department">
+                        <!-- <input type="text" id="department" name="department"> -->
+                        <select class="select-option" id="department" name="departmentId">
+                        </select>
                     </div>
                 </div>
                 <div class="row-right">
@@ -179,11 +177,7 @@
                 <h2>Notification Title</h2>
                 <img src="../assets/icon/close-48.png" class="close-btn"></img>
             </div>
-            <div class="popup-body">
-                <li>Thông báo lỗi abc</li>
-                <li>Thông báo lỗi abc</li>
-                <li>Thông báo lỗi abc</li>
-                <li>Thông báo lỗi abc</li>
+            <div class="popup-body" id="popup-body">
             </div>
             <div class="popup-footer">
                 <button class="close-popup-btn">Close</button>
@@ -192,6 +186,6 @@
     </div>
 
 </body>
-<script src="../js/validate_register_form.js"></script>
+<script src="../js/employee/newemployee.js"></script>
 
 </html>

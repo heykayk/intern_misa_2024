@@ -1,4 +1,4 @@
-using MISA.CokCok.Core;
+﻿using MISA.CokCok.Core;
 using MISA.CokCok.Core.Interfaces.IRepositories;
 using MISA.CokCok.Core.Interfaces.IServices;
 using MISA.CokCok.Core.Services;
@@ -7,6 +7,18 @@ using MISA.CokCok.Infrastructure.MisaDatabaseContext;
 using MISA.CokCok.Infrastructure.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Thêm dịch vụ CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigin",
+        builder =>
+        {
+            builder.WithOrigins("http://127.0.0.1:5500") // Thay đổi thành URL của bạn
+                   .AllowAnyHeader()
+                   .AllowAnyMethod();
+        });
+});
 
 // Add services to the container.
 Common.ConnectionString = builder.Configuration.GetConnectionString("Database1");
@@ -37,6 +49,11 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseRouting();
+
+// Sử dụng middleware CORS
+app.UseCors("AllowSpecificOrigin");
 
 app.UseAuthorization();
 

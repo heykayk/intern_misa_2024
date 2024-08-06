@@ -9,8 +9,7 @@ namespace MISA.CokCok.Core.Entities
 {
     public class Department
     {
-        [Column("DeparmentId")]
-        public Guid DeparmentId {  get; set; }
+        public Guid DepartmentId {  get; set; }
         public string DepartmentName { get; set; }
     }
 }

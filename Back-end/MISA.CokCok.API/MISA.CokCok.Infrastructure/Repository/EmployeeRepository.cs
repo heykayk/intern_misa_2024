@@ -26,5 +26,32 @@ namespace MISA.CokCok.Infrastructure.Repository
             var res = _dbContext.Connection.QueryFirstOrDefault(sql, parameters); 
             return res != null;
         }
+
+        public string getEmployeeLastest()
+        {
+            var sql = "SELECT EmployeeCode FROM Employee ORDER BY EmployeeCode DESC LIMIT 1";
+            var res = _dbContext.Connection.QueryFirstOrDefault<string>(sql);
+            return res != null ? NewEmployeeCode(res) : "NV-000001";
+        }
+
+        private string NewEmployeeCode(string originalString)
+        {
+
+            // Tách phần số từ chuỗi
+            string prefix = originalString.Substring(0, 3); // "NV-"
+            string numberPart = originalString.Substring(3); // "000001"
+
+            // Chuyển phần số sang số nguyên
+            int number = int.Parse(numberPart);
+
+            // Tăng giá trị số lên 1
+            number++;
+
+            // Định dạng lại thành chuỗi với số mới
+            string newNumberPart = number.ToString("D6"); // Đảm bảo có 6 chữ số với các số 0 dẫn đầu
+            string newString = prefix + newNumberPart;
+
+            return newString;
+        }
     }
 }

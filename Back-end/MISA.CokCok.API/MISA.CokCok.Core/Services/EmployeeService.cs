@@ -9,19 +9,56 @@ using System.Threading.Tasks;
 using Dapper;
 using MySqlConnector;
 using MISA.CokCok.Core.DTOs;
+using static Dapper.SqlMapper;
 
 namespace MISA.CokCok.Core.Services
 {
-    public class EmployeeService : BaseService<Employee>, IEmployeeService
+    public class EmployeeService : IEmployeeService
     {
         IEmployeeRepository _employeeRepository;
-        public EmployeeService(IEmployeeRepository repository) : base(repository) 
+        public EmployeeService(IEmployeeRepository repository)
         {        
+            _employeeRepository = repository;
         }
 
-        public object updateService(Employee employee)
+        public ServiceResponse InsertService(Employee entity)
         {
-            throw new NotImplementedException();
+            var isDuplicate = _employeeRepository.CheckEmployeeCodeDuplicate(entity.EmployeeCode);
+            if (isDuplicate)
+            {
+                var serviceResponse = new ServiceResponse
+                {
+                    Success = false,
+                    StatusCode = (int)System.Net.HttpStatusCode.BadRequest,
+                    Message = null
+                };
+                serviceResponse.Errors.Add("Mã nhân viên đã tồn tại!");
+                return serviceResponse;
+            }
+            SetNewId(entity);
+            var res = _employeeRepository.Insert(entity);
+            return new ServiceResponse
+            {
+                Success = true,
+                StatusCode = (int) System.Net.HttpStatusCode.OK,
+                Message = res
+            };
+        }
+
+        private void SetNewId(Employee entity) 
+        {
+            entity.EmployeeId = Guid.NewGuid();
+        }
+
+        public ServiceResponse updateService(Employee entity)
+        {
+            var res = _employeeRepository.Update(entity);
+            return new ServiceResponse
+            {
+                Success = true,
+                StatusCode = (int)System.Net.HttpStatusCode.OK,
+                Message = res
+            };
         }
     }
 }

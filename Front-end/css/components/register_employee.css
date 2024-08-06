@@ -113,6 +113,10 @@ input[type="date"] {
     width: 100%;
 }
 
+.select-option{
+    height: 28px;
+}
+
 .mobile-phone, .landline-phone, .email, .bank-account, .bank-name, .branh{
     width: 32.5%;
 }
