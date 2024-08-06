@@ -3,6 +3,7 @@ window.onload = function () {
 }
 
 class EmployeePage {
+    employeesBackup = [];
     employees = [];
     sizeOfPage = 20;
     pageNumber = 1;
@@ -24,7 +25,24 @@ class EmployeePage {
             this.loadData();
 
             // Bắt sự kiện cho ô input search
+            document.querySelector("#search-input").addEventListener('keydown', (event) => {
+                let key = document.querySelector("#search-input").value?.trim().toLowerCase();
+                if (event.key == "Enter" && key !== null && key !== "" && key !== undefined) {
+                    let tmp = [];
+                    console.log(key);
+                    for (const item of this.employeesBackup) {
+                        if (item.FullName.toLowerCase().includes(key)) {
+                            tmp.push(item);
+                        }
+                    }
+                    this.employees = tmp;
 
+                    this.updateTable();
+                } if (key === "") {
+                    this.employees = this.employeesBackup;
+                    this.updateTable();
+                }
+            });
 
             //Bắt sự kiện cho reload page
             document.querySelector(".table-search").querySelector("button").nextElementSibling.addEventListener('click', () => {
@@ -33,7 +51,7 @@ class EmployeePage {
                 this.totalPage = 0;
                 this.genderTable();
                 this.loadData();
-            })
+            });
 
             // Bắt sự kiện cho arrow left
             document.querySelector("#arrow-left").addEventListener('click', () => {
@@ -42,7 +60,7 @@ class EmployeePage {
                     this.pageNumber -= 1;
                     this.genderTable();
                 }
-            })
+            });
 
             // Bắt sự kiện cho arrow right
             document.querySelector("#arrow-right").addEventListener('click', () => {
@@ -51,20 +69,38 @@ class EmployeePage {
                     this.pageNumber += 1;
                     this.genderTable();
                 }
-            })
+            });
 
             //Bắt sự kiện cho thẻ select
             document.querySelector("#dropdown-page").addEventListener('change', () => {
                 this.pageNumber = document.querySelector("#dropdown-page").value;
                 this.genderTable();
-            })
+            });
 
             // Tắt popup
             document.querySelector("#popup").querySelector("button").addEventListener("click", function () {
                 this.parentElement.parentElement.parentElement.style.display = "none";
-            })
+            });
+
+            // bắt sự kiện cho button thêm mới và update
         } catch (error) {
-            console.error("Error: ", error);
+            console.error(error);
+        }
+    }
+
+    /**
+     * Cập nhật lại bảng mỗi khi tìm kiếm
+     * Author: Ngô Minh Hiếu (16-7-2024)
+     */
+    updateTable() {
+        try {
+            this.totalPage = Math.floor(this.employees.length / this.sizeOfPage) + 1;
+            this.genderSelectOption();
+            this.pageNumber = 1;
+            document.querySelector(".page-container").querySelector(".total-page").innerHTML = `Tổng: ${this.employees.length}`;
+            this.genderTable();
+        } catch (error) {
+            console.error(error)
         }
     }
 
@@ -85,7 +121,20 @@ class EmployeePage {
         }
     }
 
-
+    
+    /**
+     * Bắt sự kiện cho button thêm mới và update
+     * Author: Ngô Minh Hiếu (16-7-2024)
+     */
+    buttonAddOnClick() {
+        try {
+            document.querySelector(".button-add").forEach(button => {
+                console.log(button);
+            })
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     /**
      * Lấy dữ liệu từ server
@@ -98,10 +147,10 @@ class EmployeePage {
                 .then(data => {
                     document.querySelector(".page-container").querySelector(".total-page").innerHTML = `Tổng: ${data.length}`;
                     this.employees = data;
+                    this.employeesBackup = data;
                     this.totalPage = Math.floor(this.employees.length / this.sizeOfPage) + 1;
                     this.genderSelectOption();
                     this.genderTable();
-                    debugger;
                 })
         } catch (error) {
             console.error("Lỗi : " + error);
@@ -131,11 +180,13 @@ class EmployeePage {
                     <td style="position: relative;">
                         ${this.employees[i].Address}
                         <div>
-                            <button class="edit-btn button-img"><img class="img" src="../assets/icon/icons8-edit-24.png" alt=""></button>
-                            <button class="delete-btn button-img" data-id="2"><img class="img" src="../assets/icon/close-48.png" alt=""></button>
+                            <button class="edit-btn button-img button-edit"><img class="img" src="../assets/icon/icons8-edit-24.png" alt=""></button>
+                            <button class="delete-btn button-img button-add" data-id="${this.employees[i].EmployeeId}"><img class="img" src="../assets/icon/close-48.png" alt=""></button>
                         </div>
                     </td>`;
                 table.querySelector("tbody").append(tr);
+
+                this.buttonAddOnClick();
             }
 
             // Bắt sự kiện cho các button được tạo ra cùng với bảng

@@ -1,0 +1,75 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Web app\\intern_misa_2024\\Back-end\\MISA.CokCok.API\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E7BFE9A6-E796-4224-8951-A30EFB65F215}|MISA.CokCok.API\\MISA.CokCok.API.csproj|d:\\web app\\intern_misa_2024\\back-end\\misa.cokcok.api\\misa.cokcok.api\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E7BFE9A6-E796-4224-8951-A30EFB65F215}|MISA.CokCok.API\\MISA.CokCok.API.csproj|solutionrelative:misa.cokcok.api\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF13B2F5-521C-40FB-9E81-D972BA8E74FC}|MISA.CokCok.Infrastructure\\MISA.CokCok.Infrastructure.csproj|d:\\web app\\intern_misa_2024\\back-end\\misa.cokcok.api\\misa.cokcok.infrastructure\\misadatabasecontext\\mysqldbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EF13B2F5-521C-40FB-9E81-D972BA8E74FC}|MISA.CokCok.Infrastructure\\MISA.CokCok.Infrastructure.csproj|solutionrelative:misa.cokcok.infrastructure\\misadatabasecontext\\mysqldbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EF13B2F5-521C-40FB-9E81-D972BA8E74FC}|MISA.CokCok.Infrastructure\\MISA.CokCok.Infrastructure.csproj|d:\\web app\\intern_misa_2024\\back-end\\misa.cokcok.api\\misa.cokcok.infrastructure\\interfaces\\imisadbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EF13B2F5-521C-40FB-9E81-D972BA8E74FC}|MISA.CokCok.Infrastructure\\MISA.CokCok.Infrastructure.csproj|solutionrelative:misa.cokcok.infrastructure\\interfaces\\imisadbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 110,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MySqlDBContext.cs",
+              "DocumentMoniker": "D:\\Web app\\intern_misa_2024\\Back-end\\MISA.CokCok.API\\MISA.CokCok.Infrastructure\\MisaDatabaseContext\\MySqlDBContext.cs",
+              "RelativeDocumentMoniker": "MISA.CokCok.Infrastructure\\MisaDatabaseContext\\MySqlDBContext.cs",
+              "ToolTip": "D:\\Web app\\intern_misa_2024\\Back-end\\MISA.CokCok.API\\MISA.CokCok.Infrastructure\\MisaDatabaseContext\\MySqlDBContext.cs",
+              "RelativeToolTip": "MISA.CokCok.Infrastructure\\MisaDatabaseContext\\MySqlDBContext.cs",
+              "ViewState": "AQIAADEAAAAAAAAAAAAWwEMAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-05T16:06:17.288Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IMisaDBContext.cs",
+              "DocumentMoniker": "D:\\Web app\\intern_misa_2024\\Back-end\\MISA.CokCok.API\\MISA.CokCok.Infrastructure\\Interfaces\\IMisaDBContext.cs",
+              "RelativeDocumentMoniker": "MISA.CokCok.Infrastructure\\Interfaces\\IMisaDBContext.cs",
+              "ToolTip": "D:\\Web app\\intern_misa_2024\\Back-end\\MISA.CokCok.API\\MISA.CokCok.Infrastructure\\Interfaces\\IMisaDBContext.cs",
+              "RelativeToolTip": "MISA.CokCok.Infrastructure\\Interfaces\\IMisaDBContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-05T16:06:13.715Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EmployeesController.cs",
+              "DocumentMoniker": "D:\\Web app\\intern_misa_2024\\Back-end\\MISA.CokCok.API\\MISA.CokCok.API\\Controllers\\EmployeesController.cs",
+              "RelativeDocumentMoniker": "MISA.CokCok.API\\Controllers\\EmployeesController.cs",
+              "ToolTip": "D:\\Web app\\intern_misa_2024\\Back-end\\MISA.CokCok.API\\MISA.CokCok.API\\Controllers\\EmployeesController.cs",
+              "RelativeToolTip": "MISA.CokCok.API\\Controllers\\EmployeesController.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAWwCMAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-05T16:05:50.688Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

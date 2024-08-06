@@ -1,0 +1,13 @@
+D:\Web app\intern_misa_2024\Back-end\MISA.CokCok.API\MISA.CokCok.Core\bin\Debug\net8.0\MISA.CokCok.Core.deps.json
+D:\Web app\intern_misa_2024\Back-end\MISA.CokCok.API\MISA.CokCok.Core\bin\Debug\net8.0\MISA.CokCok.Core.dll
+D:\Web app\intern_misa_2024\Back-end\MISA.CokCok.API\MISA.CokCok.Core\bin\Debug\net8.0\MISA.CokCok.Core.pdb
+D:\Web app\intern_misa_2024\Back-end\MISA.CokCok.API\MISA.CokCok.Core\obj\Debug\net8.0\MISA.CokCok.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\Web app\intern_misa_2024\Back-end\MISA.CokCok.API\MISA.CokCok.Core\obj\Debug\net8.0\MISA.CokCok.Core.AssemblyInfoInputs.cache
+D:\Web app\intern_misa_2024\Back-end\MISA.CokCok.API\MISA.CokCok.Core\obj\Debug\net8.0\MISA.CokCok.Core.AssemblyInfo.cs
+D:\Web app\intern_misa_2024\Back-end\MISA.CokCok.API\MISA.CokCok.Core\obj\Debug\net8.0\MISA.CokCok.Core.csproj.CoreCompileInputs.cache
+D:\Web app\intern_misa_2024\Back-end\MISA.CokCok.API\MISA.CokCok.Core\obj\Debug\net8.0\MISA.CokCok.Core.sourcelink.json
+D:\Web app\intern_misa_2024\Back-end\MISA.CokCok.API\MISA.CokCok.Core\obj\Debug\net8.0\MISA.CokCok.Core.dll
+D:\Web app\intern_misa_2024\Back-end\MISA.CokCok.API\MISA.CokCok.Core\obj\Debug\net8.0\refint\MISA.CokCok.Core.dll
+D:\Web app\intern_misa_2024\Back-end\MISA.CokCok.API\MISA.CokCok.Core\obj\Debug\net8.0\MISA.CokCok.Core.pdb
+D:\Web app\intern_misa_2024\Back-end\MISA.CokCok.API\MISA.CokCok.Core\obj\Debug\net8.0\ref\MISA.CokCok.Core.dll
+D:\Web app\intern_misa_2024\Back-end\MISA.CokCok.API\MISA.CokCok.Core\obj\Debug\net8.0\MISA.CokCok.Core.csproj.AssemblyReference.cache

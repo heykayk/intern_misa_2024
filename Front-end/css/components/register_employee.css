@@ -145,3 +145,9 @@ input[type="date"] {
 .btn-add:hover{
     background-color:#067933 ;
 }
+
+.error{
+    border: 1.5px solid red; /* Đường viền màu đỏ */
+    border-radius: 4px;
+}
+
