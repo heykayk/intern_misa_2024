@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MISA.CokCok.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3a5c8de841ab6933a5ef2bfe7a536b763c3ad81a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0c78a34cecc15187d566db08f07fc40bc8b266f8")]
 [assembly: System.Reflection.AssemblyProductAttribute("MISA.CokCok.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MISA.CokCok.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

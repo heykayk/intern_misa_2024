@@ -18,15 +18,6 @@ namespace MISA.CokCok.Infrastructure.Repository
         {
         }
 
-        public bool CheckEmployeeCodeDuplicate(string EmployeeCode)
-        {
-            var sql = "SELECT EmployeeCode FROM Employee e WHERE e.EmployeeCode = @EmployeeCode";
-            var parameters = new DynamicParameters();
-            parameters.Add("@EmployeeCode", EmployeeCode);
-            var res = _dbContext.Connection.QueryFirstOrDefault(sql, parameters); 
-            return res != null;
-        }
-
         public string getEmployeeLastest()
         {
             var sql = "SELECT EmployeeCode FROM Employee ORDER BY EmployeeCode DESC LIMIT 1";

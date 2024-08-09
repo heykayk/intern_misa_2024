@@ -20,6 +20,12 @@ namespace MISA.CokCok.Infrastructure.Repository
             _dbContext = dbcontext;
         }
 
+        public bool CheckEmployeeCodeDuplicate(string id)
+        {
+            var res = _dbContext.CheckEmployeeCodeDuplicate<T>(id);
+            return res;
+        }
+
         public int Delete(string id)
         {
            var res = _dbContext.Delete<T>(id);

@@ -9,7 +9,6 @@ namespace MISA.CokCok.Core.Interfaces.IRepositories
 {
     public interface IEmployeeRepository : IBaseRepository<Employee>
     {
-        bool CheckEmployeeCodeDuplicate(string id);
         string getEmployeeLastest(); 
     }
 }

@@ -17,6 +17,6 @@ namespace MISA.CokCok.Infrastructure.Interfaces
         int Update<T>(T entity);
         int Delete<T>(string id);
         int DeleteAny<T>(Guid[] ids);
-
+        bool CheckEmployeeCodeDuplicate<T>(string id);
     }
 }

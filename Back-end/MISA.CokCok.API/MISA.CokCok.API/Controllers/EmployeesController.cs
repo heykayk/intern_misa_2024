@@ -9,7 +9,8 @@ using System.Net;
 
 namespace MISA.CokCok.API.Controllers
 {
-
+    // API: https://localhost:7178/api/v1/Employees
+    // Author: Ngô Minh Hiếu
     [Route("api/v1/Employees")]
     [ApiController]
     public class EmployeesController : ControllerBase
@@ -23,13 +24,16 @@ namespace MISA.CokCok.API.Controllers
             _employeeService = service;
         }
 
+        // API: GET https://localhost:7178/api/v1/Employees
+        // Author: Ngô Minh Hiếu
         [HttpGet]
         public IActionResult Get()
         {
             return StatusCode(200, _employeeRepository.Get());
         }
 
-
+        // API: GET https://localhost:7178/api/v1/Employees/NewEmployee/EmployeeCode
+        // Author: Ngô Minh Hiếu
         [HttpGet("NewEmployee/EmployeeCode")]
         public IActionResult GetEmployeeCode()
         {
@@ -37,6 +41,8 @@ namespace MISA.CokCok.API.Controllers
             return StatusCode(200, res);
         }
 
+        // API: GET https://localhost:7178/api/v1/Employees/{id}
+        // Author: Ngô Minh Hiếu
         [HttpGet("{id}")]
         public IActionResult Get(String id)
         {
@@ -44,12 +50,23 @@ namespace MISA.CokCok.API.Controllers
             return StatusCode(200, employee);
         }
 
+        // API: GET https://localhost:7178/api/v1/Employees/ExportFile
+        // Author: Ngô Minh Hiếu
+        [HttpGet("ExportFile")]
+        public IActionResult GetCSV()
+        {
+            var res = 1; // Placeholder for actual CSV export logic
+            return StatusCode(200, res);
+        }
+
+        // API: POST https://localhost:7178/api/v1/Employees/UpdateEmployee
+        // Author: Ngô Minh Hiếu
         [HttpPost("UpdateEmployee")]
         public IActionResult Update(Employee employee)
         {
             try
             {
-                var result = _employeeService.updateService(employee);
+                var result = _employeeService.UpdateService(employee);
                 if (result.Success == true)
                 {
                     return StatusCode(200, result);
@@ -72,6 +89,8 @@ namespace MISA.CokCok.API.Controllers
             }
         }
 
+        // API: POST https://localhost:7178/api/v1/Employees
+        // Author: Ngô Minh Hiếu
         [HttpPost]
         public IActionResult Insert(Employee employee)
         {
@@ -100,20 +119,21 @@ namespace MISA.CokCok.API.Controllers
             }
         }
 
+        // API: DELETE https://localhost:7178/api/v1/Employees/{id}
+        // Author: Ngô Minh Hiếu
         [HttpDelete("{id}")]
         public IActionResult Delete(String id)
         {
             try
             {
                 var res = _employeeRepository.Delete(id);
-                var message = new ServiceResponse 
-                { 
+                var message = new ServiceResponse
+                {
                     StatusCode = 200,
                     Message = "Xóa thành công"
                 };
 
                 return StatusCode(200, message);
-               
             }
             catch (Exception ex)
             {
@@ -123,9 +143,8 @@ namespace MISA.CokCok.API.Controllers
                     devMsg = "",
                     error = ex.Message
                 };
-                return StatusCode(500, ex.Message); 
+                return StatusCode(500, ex.Message);
             }
         }
-
     }
 }

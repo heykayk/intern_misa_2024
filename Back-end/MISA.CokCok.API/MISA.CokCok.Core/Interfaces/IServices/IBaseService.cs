@@ -1,4 +1,5 @@
-﻿using MISA.CokCok.Core.DTOs;
+﻿using Microsoft.AspNetCore.Http;
+using MISA.CokCok.Core.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,7 @@ namespace MISA.CokCok.Core.Interfaces.IServices
     public interface IBaseService<T> where T : class
     {
         ServiceResponse InsertService(T entity);
+        byte[] ExportFile();
+        ServiceResponse UpdateService(T entity);
     }
 }

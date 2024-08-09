@@ -13,7 +13,7 @@ namespace MISA.CokCok.Infrastructure.MisaDatabaseContext
 {
     public class MySqlDBContext : IMisaDBContext
     {
-        public IDbConnection Connection {  get;}
+        public IDbConnection Connection { get; }
 
         public MySqlDBContext(IConfiguration configuration)
         {
@@ -22,127 +22,155 @@ namespace MISA.CokCok.Infrastructure.MisaDatabaseContext
 
         public IDbTransaction transaction => throw new NotImplementedException();
 
+        // Xóa một bản ghi dựa trên ID
+        // Author: Ngô Minh Hiếu
         public int Delete<T>(string id)
-        {   
-            var className = typeof(T).Name;
-            var sql = $"DELETE FROM {className} WHERE {className}Id = @id";
+        {
+            var className = typeof(T).Name; // Tên của bảng tương ứng với loại T
+            var sql = $"DELETE FROM {className} WHERE {className}Id = @id"; // Câu lệnh SQL xóa
             var parameters = new DynamicParameters();
             parameters.Add("@id", id);
-            var res = Connection.Execute(sql, parameters);
+            var res = Connection.Execute(sql, parameters); // Thực thi câu lệnh SQL
             return res;
         }
 
+        // Xóa nhiều bản ghi dựa trên danh sách ID
+        // Author: Ngô Minh Hiếu
         public int DeleteAny<T>(Guid[] ids)
         {
-            var className = typeof(T).Name;
+            var className = typeof(T).Name; // Tên của bảng tương ứng với loại T
             var res = 0;
-            var sql = $"DELETE FROM {className} WHERE {className}Id IN (@ids)";
+            var sql = $"DELETE FROM {className} WHERE {className}Id IN (@ids)"; // Câu lệnh SQL xóa nhiều bản ghi
             var parameters = new DynamicParameters();
-            var idsArray = "";
-            foreach (var id in ids)
-            {
-                idsArray += $"{id}, ";
-            }
-            idsArray.Substring(0, idsArray.Length - 1);
+            // Chuyển đổi danh sách ID thành chuỗi
+            var idsArray = string.Join(", ", ids);
             parameters.Add("@ids", idsArray);
-            res = Connection.Execute(sql, parameters);
+            res = Connection.Execute(sql, parameters); // Thực thi câu lệnh SQL
             return res;
         }
 
+        // Lấy tất cả bản ghi từ bảng
+        // Author: Ngô Minh Hiếu
         public IEnumerable<T> Get<T>()
         {
-            var classname = typeof(T).Name;
-            var sql = $"SELECT * FROM {classname}";
-            if (classname == "Employee")
+            var classname = typeof(T).Name; // Tên của bảng tương ứng với loại T
+            var sql = $"SELECT * FROM {classname}"; // Câu lệnh SQL lấy tất cả bản ghi
+            if (classname == "Employee") // Nếu bảng là "Employee", sắp xếp theo EmployeeCode giảm dần
             {
                 sql = $"SELECT * FROM {classname} ORDER BY {classname}Code DESC";
             }
-            var data = Connection.Query<T>(sql);
+            var data = Connection.Query<T>(sql); // Thực thi câu lệnh SQL và lấy dữ liệu
             return data.ToList();
         }
 
+        // Lấy bản ghi dựa trên ID
+        // Author: Ngô Minh Hiếu
         public T Get<T>(string id)
         {
-            var className = typeof(T).Name; 
-            var sql = $"SELECT * FROM {className} WHERE {className}Id = @id";
+            var className = typeof(T).Name; // Tên của bảng tương ứng với loại T
+            var sql = $"SELECT * FROM {className} WHERE {className}Id = @id"; // Câu lệnh SQL lấy bản ghi theo ID
             var parameters = new DynamicParameters();
             parameters.Add("@id", id);
-            var data = Connection.QueryFirstOrDefault<T>(sql, parameters);
+            var data = Connection.QueryFirstOrDefault<T>(sql, parameters); // Thực thi câu lệnh SQL và lấy dữ liệu
             return data;
         }
 
+        // Thêm một bản ghi mới vào bảng
+        // Author: Ngô Minh Hiếu
         public int Insert<T>(T entity)
         {
-            var className = typeof(T).Name;
-            var propListName = "";
-            var propListValue = "";
-            // lấy ra tất cả các props của entity
+            var className = typeof(T).Name; // Tên của bảng tương ứng với loại T
+            var propListName = ""; // Danh sách tên thuộc tính
+            var propListValue = ""; // Danh sách giá trị thuộc tính
+            // Lấy tất cả các thuộc tính của đối tượng
             var props = entity.GetType().GetProperties();
             var parameters = new DynamicParameters();
-            // duyệt từng props
+            // Duyệt qua từng thuộc tính
             foreach (var prop in props)
             {
-                // lấy ra tên của prop
-                var propname = prop.Name; // EmployeeId
-                var val = prop.GetValue(entity);
+                var propname = prop.Name; // Tên thuộc tính (ví dụ: EmployeeId)
+                var val = prop.GetValue(entity); // Giá trị thuộc tính
 
-                // lấy ra values của prop
+                // Xây dựng danh sách tên thuộc tính và giá trị
                 propListName += $"{propname},";
                 propListValue += $"@{propname},";
-                parameters.Add($"@{propname}", val);
+                parameters.Add($"@{propname}", val); // Thêm tham số vào DynamicParameters
             }
-            propListName =  propListName.Substring(0, propListName.Length - 1);
-            propListValue = propListValue.Substring(0, propListValue.Length - 1);
+            // Loại bỏ dấu phẩy cuối cùng
+            propListName = propListName.TrimEnd(',');
+            propListValue = propListValue.TrimEnd(',');
 
-            // Build câu lệnh sql
-            var sqlInsert = $"INSERT {className}({propListName}) VALUES ({propListValue});";
-            // thực thi
+            // Xây dựng câu lệnh SQL chèn dữ liệu
+            var sqlInsert = $"INSERT INTO {className}({propListName}) VALUES ({propListValue});";
+            // Thực thi câu lệnh SQL
             var res = Connection.Execute(sqlInsert, parameters);
             return res;
         }
 
+        // Cập nhật bản ghi dựa trên đối tượng
+        // Author: Ngô Minh Hiếu
         public int Update<T>(T entity)
         {
-            var className = typeof(T).Name;
-            var setClause = "";
-            var keyPropertyName = className + "Id";
-            var keyPropertyValue = "";
+            if (entity == null)
+            {
+                throw new ArgumentNullException(nameof(entity), "Entity cannot be null.");
+            }
 
-            // lấy ra tất cả các props của entity
+            var className = typeof(T).Name; // Tên của bảng tương ứng với loại T
+            var setClause = ""; // Phần SET của câu lệnh SQL
+            var keyPropertyName = className + "Id"; // Tên thuộc tính khóa chính
+            var keyPropertyValue = ""; // Giá trị thuộc tính khóa chính
+
+            // Lấy tất cả các thuộc tính của đối tượng
             var props = entity.GetType().GetProperties();
             var parameters = new DynamicParameters();
 
-            // duyệt từng props
+            // Duyệt qua từng thuộc tính
             foreach (var prop in props)
             {
-                // lấy ra tên của prop
-                var propname = prop.Name;
+                var propName = prop.Name;
                 var val = prop.GetValue(entity);
-                if (propname == keyPropertyName)
+
+                if (propName == keyPropertyName)
                 {
-                    keyPropertyValue = val?.ToString() ?? "";
+                    keyPropertyValue = val?.ToString() ?? ""; // Lưu giá trị khóa chính
                 }
 
-                // xây dựng SET clause, bỏ qua khóa chính
-                if (propname != keyPropertyName)
+                // Xây dựng phần SET, bỏ qua thuộc tính khóa chính
+                if (propName != keyPropertyName)
                 {
-                    setClause += $"{propname} = @{propname}, ";
-                    parameters.Add($"@{propname}", val);
+                    setClause += $"{propName} = @{propName}, ";
+                    parameters.Add($"@{propName}", val);
                 }
             }
 
-            // loại bỏ dấu phẩy và khoảng trắng cuối cùng
-            setClause = setClause.Substring(0, setClause.Length - 2);
+            // Kiểm tra xem keyPropertyValue có hợp lệ không
+            if (string.IsNullOrWhiteSpace(keyPropertyValue))
+            {
+                throw new InvalidOperationException("Key property value cannot be null or empty.");
+            }
 
-            // thêm khóa chính vào parameters
+            // Xóa dấu phẩy cuối cùng trong setClause nếu có
+            setClause = setClause.TrimEnd(',', ' ');
+
+            // Xây dựng câu lệnh SQL
+            var sql = $"UPDATE {className} SET {setClause} WHERE {keyPropertyName} = @{keyPropertyName}";
             parameters.Add($"@{keyPropertyName}", keyPropertyValue);
-
-            // Build câu lệnh sql
-            var sqlUpdate = $"UPDATE {className} SET {setClause} WHERE {keyPropertyName} = @{keyPropertyName};";
-
-            // thực thi
-            var res = Connection.Execute(sqlUpdate, parameters);
+            // Thực thi câu lệnh SQL
+            var res = Connection.Execute(sql, parameters);
             return res;
+        }
+
+        // Kiểm tra xem mã nhân viên có bị trùng không
+        // Author: Ngô Minh Hiếu
+        public bool CheckEmployeeCodeDuplicate<T>(string id)
+        {
+            var className = typeof(T).Name; // Tên của bảng tương ứng với loại T
+            var sql = $"SELECT {className}Code FROM {className} WHERE {className}Code = @id"; // Câu lệnh SQL kiểm tra mã trùng
+            var parameters = new DynamicParameters();
+            parameters.Add("@id", id);
+            var res = Connection.QueryFirstOrDefault(sql, parameters); // Thực thi câu lệnh SQL và lấy dữ liệu
+            return (res != null); // Trả về true nếu có bản ghi, false nếu không
         }
     }
 }

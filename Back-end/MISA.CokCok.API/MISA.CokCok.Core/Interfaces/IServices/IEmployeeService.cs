@@ -10,6 +10,5 @@ namespace MISA.CokCok.Core.Interfaces.IServices
 {
     public interface IEmployeeService : IBaseService<Employee>
     {
-        ServiceResponse updateService(Employee employee);
     }
 }
