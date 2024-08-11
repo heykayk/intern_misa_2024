@@ -55,8 +55,8 @@ namespace MISA.CokCok.API.Controllers
         [HttpGet("ExportFile")]
         public IActionResult GetCSV()
         {
-            var res = 1; // Placeholder for actual CSV export logic
-            return StatusCode(200, res);
+            var res = _employeeService.ExportFile();
+            return File(res, "text/csv", "Employee.csv");
         }
 
         // API: POST https://localhost:7178/api/v1/Employees/UpdateEmployee

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MISA.CokCok.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0c78a34cecc15187d566db08f07fc40bc8b266f8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dd6748a43fed61ec454af6aefdede0f8d812418c")]
 [assembly: System.Reflection.AssemblyProductAttribute("MISA.CokCok.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MISA.CokCok.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
